@@ -7,11 +7,15 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
     <title>VisionCar</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="node_modules/remixicon/fonts/remixicon.css">
 </head>
 <body>
     <?php require './view/templates/header.php' ?>
     <?php require './view/templates/navbar.php' ?>
-    <main class="content"></main>
+    <main class="content">
+        <h1>Content</h1>
+    </main>
     <?php require './view/templates/footer.php' ?>
 </body>
 </html>
