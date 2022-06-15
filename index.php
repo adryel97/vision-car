@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="node_modules/remixicon/fonts/remixicon.css">
 </head>
 <body>
-    <?php require './view/templates/header.php' ?>
-    <?php require './view/templates/navbar.php' ?>
-    <main class="content">
-        <h1>Content</h1>
-    </main>
-    <?php require './view/templates/footer.php' ?>
+    <div class="container">
+        <?php require './view/templates/header.php' ?>
+        <?php require './view/templates/navbar.php' ?>
+        <main class="content">
+            <h1>Content</h1>
+        </main>
+        <?php require './view/templates/footer.php' ?>
+    </div>
 </body>
 </html>
