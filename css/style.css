@@ -8,7 +8,29 @@ html, body {
 
 .content {
     margin-left: 50px;
+    margin-top: 60px;
     transition: 0.2s;
+}
+
+.btn__toggle--bar{
+    width: 50px;
+    text-align: center;
+}
+
+.btn__toggle--bar-circle {
+    border-radius: 50%;
+    border: 1px solid transparent;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.btn__toggle--bar-circle:hover{
+    background-color: #dee2e6;
+    transition: 0.3s;
 }
 
 /**
@@ -41,6 +63,7 @@ html, body {
  display: none;
 }
 
+
 .side_bar:hover{
     width: 200px;
     transition: 0.2s;
@@ -61,6 +84,12 @@ html, body {
     transition: 0.2s;
 }
 
+
+.list__collapse{
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
 .nav__br--daddy{
     width: 50px;
 }
@@ -71,7 +100,6 @@ html, body {
 /**
 Font
 */
-
 .fw-regular  {
     font-weight: 400;
 }

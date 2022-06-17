@@ -14,7 +14,7 @@
     <div class="container position-relative">
         <?php require './view/templates/header.php' ?>
         <?php require './view/templates/navbar.php' ?>
-        <main class="content">
+        <main class="content ps-3 pe-3 pb-4" style="">
             <h1>Content</h1>
         </main>
         <?php require './view/templates/footer.php' ?>
