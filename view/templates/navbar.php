@@ -18,19 +18,19 @@
                 </a>
                 <ul class="list__collapse mt-2" id="financeiro" style="display: none;">
                     <li class="mb-2">
-                        <a href="" class="list_description text-gray" style="font-size: 0.8rem">Contas</a>
+                        <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Contas</a>
                     </li>
                     <li class="mb-2">
-                        <a href="" class="list_description text-gray" style="font-size: 0.8rem">Contas a pagar</a>
+                        <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Contas a pagar</a>
                     </li>
                     <li class="mb-2">
-                        <a href="" class="list_description text-gray" style="font-size: 0.8rem">Contas a pagas</a>
+                        <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Contas a pagas</a>
                     </li>
                     <li class="mb-2">
-                        <a href="" class="list_description text-gray" style="font-size: 0.8rem">Fluxo de caixa</a>
+                        <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Fluxo de caixa</a>
                     </li>
                     <li class="mb-2">
-                        <a href="" class="list_description text-gray" style="font-size: 0.8rem">Lançamentos</a>
+                        <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Lançamentos</a>
                     </li>
                 </ul>
             </li>
@@ -45,19 +45,19 @@
                 </a>
                 <ul class="list__collapse mt-2" id="relatorios" style="display: none;">
                     <li class="mb-2">
-                        <a href="" class="list_description text-gray" style="font-size: 0.8rem">Vendas</a>
+                        <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Vendas</a>
                     </li>
                     <li class="mb-2">
-                        <a href="" class="list_description text-gray" style="font-size: 0.8rem">Compradores</a>
+                        <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Compradores</a>
                     </li>
                     <li class="mb-2">
-                        <a href="" class="list_description text-gray" style="font-size: 0.8rem">Relatório Geral</a>
+                        <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Relatório Geral</a>
                     </li>
                     <li class="mb-2">
-                        <a href="" class="list_description text-gray" style="font-size: 0.8rem">Relatório de Contas</a>
+                        <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Relatório de Contas</a>
                     </li>
                     <li class="mb-2">
-                        <a href="" class="list_description text-gray" style="font-size: 0.8rem">Minhas Vendas</a>
+                        <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Minhas Vendas</a>
                     </li>
                 </ul>
             </li>
