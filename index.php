@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="node_modules/remixicon/fonts/remixicon.css">
 </head>
 <body>
+
+    
     <div class="container">
         <?php require './view/templates/header.php' ?>
         <?php require './view/templates/navbar.php' ?>
