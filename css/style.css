@@ -84,6 +84,36 @@ html, body {
     transition: 0.2s;
 }
 
+.side_bar:hover .arrow__collapse{
+    display: block;
+    position: absolute;
+    right: 15px;
+    font-size: 1.3rem;
+    animation: changeBackgroundColor 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes changeBackgroundColor {
+    0% {
+      color: transparent;
+    }
+    50% {
+      color: transparent;
+    }
+    100% {
+        color: #5e6e82;
+    }
+  }
+
+.arrow__collapse{
+    display: none;
+    color: transparent;
+    transition: 0.3s;
+}
+
+.upArrow{
+    transform: rotate(-180deg);
+}
 
 .list__collapse{
     list-style: none;
