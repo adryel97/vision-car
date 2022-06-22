@@ -15,7 +15,7 @@
         <?php require './view/templates/header.php' ?>
         <?php require './view/templates/navbar.php' ?>
         <main class="content ps-3 pe-3 pb-4" style="">
-            <h1>Content</h1>
+            <h3>Dashboard</h1>
         </main>
         <?php require './view/templates/footer.php' ?>
     </div>

@@ -61,6 +61,14 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item mb-2">
+                <a href="#" class="d-flex flex-row flex-nowrap align-items-center">
+                    <i class="ri-roadster-fill center-icon text-gray icon__navbar"></i>
+                    <span class="list_description ms-2 text-gray fw-semibold">
+                        Veículos
+                    </span>
+                </a>
+            </li>
         </ul>       
     </div>
 </nav>
