@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="node_modules/remixicon/fonts/remixicon.css">
 </head>
 <body>    
-    <div class="container position-relative">
+    <div class="container-fluid position-relative">
         <?php require './view/templates/header.php' ?>
         <?php require './view/templates/navbar.php' ?>
         <main class="content ps-3 pe-3 pb-4" style="">

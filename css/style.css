@@ -72,7 +72,7 @@ html, body {
 }
 
 .side_bar:hover + .content{
-    margin-left: 200px;
+    /*margin-left: 200px;*/
     transition: 0.2s;
 }
 
