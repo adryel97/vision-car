@@ -33,6 +33,7 @@
                         <a href="#" class="list_description text-gray" style="font-size: 0.8rem">Lançamentos</a>
                     </li>
                 </ul>
+                
             </li>
             <li class="nav-item mb-2">
                 <a href="#" class="d-flex flex-row flex-nowrap collapse__nav align-items-center" 
