@@ -1,26 +1,15 @@
-<div style="height: 60px;" class="w-100 d-flex align-items-center mb-3">
-    <a href="">
-        <img src="img/logo/logo_vision.png" width="50px">
-    </a>
-    <div class="w-100 ps-3">
-        <div class="d-flex row row-cols-2 align-items-center content__header">
-            <div class="col">
-                <p class="m-0">Olá! <span class="fw-semibold">Junior Dev.</span></p>
-            </div>
-            <div class="col d-flex justify-content-end">
-                <div class="d-flex align-items-center me-4">
-                    <div class="position-relative text-gray" style="padding: 2px 0px 0px 0;">
-                        <i class="ri-notification-3-fill" style="font-size: 1.3rem"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            3
-                        </span>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center">
-                    <i class="ri-apps-2-fill me-4 text-gray" style="font-size: 1.3rem"></i>
+<div style="height: auto; width: 100%; padding-left: 100px" class="bg-white pb-2 pt-2">
+    <div class="row">
+        <div class="col-6 ps-5">
+        </div>
+        <div class="col-6 pe-5">
+            <div class="d-flex justify-content-end align-items-center">
+                <div class="me-3">
+                    <i class="ri-account-circle-line" style="font-size: 2rem"></i>
                 </div>
                 <div>
-                    <img src="upload/avatar/avatar.png" width="50px" height="50px" style="border-radius: 50%; object-fit: cover" alt="">
+                   <p class="m-0 fw-semibold">Usuário</p>
+                   <p class="text-gray m-0" style="font-size: 0.80rem">Loja 2</p>
                 </div>
             </div>
         </div>

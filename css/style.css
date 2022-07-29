@@ -1,5 +1,6 @@
 html, body {
     background-color: #EDF2F9;
+    overflow: hidden;
 }
 
 .center-icon {
@@ -10,133 +11,32 @@ html, body {
     margin-left: 50px;
     transition: 0.2s;
 }
-
-.content__header{
-    height:  60px;
-}
-.btn__toggle--bar{
-    width: 50px;
-    text-align: center;
-}
-
-.btn__toggle--bar-circle {
-    border-radius: 50%;
-    border: 1px solid transparent;
-    height: 50px;
-    width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-
-.btn__toggle--bar-circle:hover{
-    background-color: #dee2e6;
-    transition: 0.3s;
-}
-
-/**
-   Inicio Navbar style
-*/
-.side_bar {
-    width: 50px;
-    height: 90vh;
-    top: 80px;
-    transition: 0.2s;
-}
-
-.ul__nav{
-    padding-left: calc(50px / 3);
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.ul__nav li {
-    text-decoration: none;
-    width: 50px;
-    transition: 0.2s;
-}
-
-.ul__nav li a{
-    text-decoration: none;
-}
-
-.list_description{
- display: none;
-}
-
-
-.side_bar:hover{
-    width: 200px;
-    transition: 0.2s;
-}
-
-.side_bar:hover + .content{
-    /*margin-left: 200px;*/
-    transition: 0.2s;
-}
-
-.side_bar:hover .nav-item{
-    width: 200px !important;
-    transition: 0.2s;
-}
-
-.side_bar:hover .list_description{
-    display: block;
-    transition: 0.2s;
-}
-
-.side_bar:hover .arrow__collapse{
-    display: block;
+#curved-corner-bottomleft{
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
     position: absolute;
-    right: 15px;
-    font-size: 1.3rem;
-    animation: changeBackgroundColor 0.2s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes changeBackgroundColor {
-    0% {
-      color: transparent;
+    left: 0px;
     }
-    50% {
-      color: transparent;
+    #curved-corner-bottomleft:before{
+        content: "";
+        display: block;
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        border-radius: 27%;
     }
-    100% {
-        color: #5e6e82;
+    #curved-corner-bottomleft:before {
+    top: 0;
+    left: 0;
+    box-shadow: -50px -50px 0 0 white;
     }
-  }
 
-.arrow__collapse{
-    display: none;
-    color: transparent;
-    transition: 0.3s;
-}
-
-.upArrow{
-    transform: rotate(-180deg);
-}
-
-.list__collapse{
+.list-style-none {
     list-style: none;
-    padding-left: 1.8rem;
+    padding: 0;
+    margin: 0;
 }
-
-.nav__br--daddy{
-    width: 50px;
-}
-
-.list__collapse li{
-    width: 176px;
-}
-
-.icon__navbar{
-    font-size: 1.3rem;
-}
-/**
-  Fim  Navbar style
-*/
-
 /**
 Font
 */
