@@ -9,3 +9,4 @@
 - [datatables](https://datatables.net/)
 - [overlayscrollbars](https://kingsora.github.io/OverlayScrollbars/#!overview)
 - [remixicon](https://remixicon.com/)
+- [tippyjs](https://atomiks.github.io/tippyjs/v6/constructor/)
