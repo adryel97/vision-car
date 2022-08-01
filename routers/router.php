@@ -7,9 +7,12 @@ use CoffeeCode\Router\Router;
 
 $router = new Router(ROOT);
 
-
 $router->namespace('App\Controller');
-$router->get('/', 'LoginSystem:viewLogin');
+$router->get('/', 'PageSite:viewHome', 'home.website');
+
+
+$router->namespace('App\Controller')->group('aplication');
+$router->get('/login', 'LoginSystem:viewLogin', 'login.aplication');
 
 $router->dispatch();
 
