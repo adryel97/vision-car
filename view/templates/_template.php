@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<?=url()?>/node_modules/remixicon/fonts/remixicon.css">
     <?= $this->section('css') ?>
 </head>
-<body>    
+<body>
     <div class="position-relative">
         <?php require './view/templates/header.php' ?>
         <?php require './view/templates/navbar.php' ?>
