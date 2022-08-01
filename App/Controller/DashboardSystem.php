@@ -8,6 +8,12 @@ class DashboardSystem
 {
     private $view;
 
+    /**
+     * It's a constructor function that creates a new instance of the Engine class, and then adds some data
+     * to the view.
+     * 
+     * @param router the router object
+     */
     public function __construct($router)
     {
         $this->view = new Engine(__DIR__ . '/../../view/templates', 'php');
@@ -22,6 +28,9 @@ class DashboardSystem
         ]);
     }
 
+    /**
+     * If the user is logged in, show the dashboard, otherwise redirect to the login page
+     */
     public function viewDashboard()
     {
         if ($_SESSION['logged'] == true) {

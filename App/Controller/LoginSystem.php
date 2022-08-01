@@ -7,6 +7,14 @@ use League\Plates\Engine;
 class LoginSystem
 {
     private $view;
+    
+    /**
+     * The function is a constructor for the class. It creates a new instance of the Engine class, which is
+     * used to render the view. It also creates a new instance of the User class, which is used to manage
+     * user data
+     * 
+     * @param router The router object
+     */
     public function __construct($router)
     {
         $this->view = new Engine(__DIR__ . '/../../view/templates', 'php');
@@ -15,6 +23,9 @@ class LoginSystem
         $this->user = new User();
     }
 
+    /**
+     * If the user is logged in, redirect to the dashboard, otherwise, render the login page
+     */
     public function viewLogin()
     {
         if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){
@@ -25,6 +36,12 @@ class LoginSystem
         }
     }
 
+    /**
+     * It receives a POST request with the user's email and password, then it checks if the user exists in
+     * the database, if it does, it sets the session variables and returns the user to the dashboard.
+     * 
+     * @param data {Array}
+     */
     public function loginUser($data)
     {
         $_SESSION['email'] = $data['email'];
@@ -43,6 +60,9 @@ class LoginSystem
         }
     }
 
+    /**
+     * It destroys the session and redirects the user to the login page.
+     */
     public function logoutUser()
     {
         session_unset();
