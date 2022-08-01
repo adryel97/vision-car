@@ -5,7 +5,9 @@
                  <img src="<?=url()?>/img/logo/logo_vision.png" width="60px">   
             </li>
         </ul>
-        <ul class="list-style-none mt-5">
+        <ul class="list-style-none mt-5" 
+            style="height: 350px" 
+            id="list_items">
             <li class="text-center">
                 <a href="<?=url('aplication/dashboard')?>" class="text-decoration-none text-dark links" data-tippy-content="Dashboard">
                     <i class="ri-dashboard-line" style="font-size: 1.5rem"></i>

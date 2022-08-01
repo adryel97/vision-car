@@ -10,6 +10,7 @@
     <title><?=$title?></title>
     <link rel="stylesheet" href="<?=url();?>/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?=url();?>/node_modules/remixicon/fonts/remixicon.css">
+    <link rel="stylesheet" href="<?=url();?>/node_modules/overlayscrollbars/css/OverlayScrollbars.min.css">
     <?=$this->section('css');?>
 </head>
 <body>
@@ -26,6 +27,19 @@
         </div>
         <?php require './view/templates/footer.php' ?>
         <?=$this->section("js");?>
+        <script src="<?=url();?>/node_modules/overlayscrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#list_items').overlayScrollbars({
+                    className       : "os-theme-dark",
+                    sizeAutoCapable : true,
+                    paddingAbsolute : true,
+                    scrollbars : {
+                        clickScrolling : true
+                    }
+                }); 
+            });
+        </script>
     </div>
 </body>
 </html>
