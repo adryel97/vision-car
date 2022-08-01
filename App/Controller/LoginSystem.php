@@ -15,6 +15,6 @@ class LoginSystem
 
     public function viewLogin()
     {
-        echo $this->view->render('_login');
+        echo $this->view->render('login');
     }
 }
