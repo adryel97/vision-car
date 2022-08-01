@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="<?=url()?>/img/logo/visioncar_mini.png"  type="image/png" sizes="15x15" />
-    <link rel="stylesheet" href="<?=url()?>/css/bootstrap.css">
-    <link rel="stylesheet" href="<?=url()?>/css/style.css?v<?=time()?>">
+    <link rel="icon" href="<?=url();?>/img/logo/visioncar_mini.png"  type="image/png" sizes="15x15" />
+    <link rel="stylesheet" href="<?=url();?>/css/bootstrap.css">
+    <link rel="stylesheet" href="<?=url();?>/css/style.css?v<?=time()?>">
     <title><?=$title?></title>
-    <link rel="stylesheet" href="<?=url()?>/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="<?=url()?>/node_modules/remixicon/fonts/remixicon.css">
-    <?= $this->section('css') ?>
+    <link rel="stylesheet" href="<?=url();?>/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="<?=url();?>/node_modules/remixicon/fonts/remixicon.css">
+    <?=$this->section('css');?>
 </head>
 <body>
     <div class="position-relative">
@@ -20,12 +20,12 @@
             <main class="pb-4 position-relative">
                 <div id="curved-corner-bottomleft"></div>
                 <div class="pt-5 ps-5">
-                    <?= $this->section('content');?>
+                    <?=$this->section('content');?>
                 </div>
             </main>
         </div>
         <?php require './view/templates/footer.php' ?>
-        <?= $this->section("js");?>
+        <?=$this->section("js");?>
     </div>
 </body>
 </html>
