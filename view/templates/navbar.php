@@ -6,49 +6,50 @@
             </li>
         </ul>
         <ul class="list-style-none mt-5 vh-100" 
-            id="list_items">
+            id="list_items"
+            page="#<?=$page?>">
             <li class="text-center">
-                <a href="<?=url('aplication/dashboard')?>" class="text-decoration-none text-dark links" data-tippy-content="Dashboard">
+                <a href="<?=url('aplication/dashboard')?>" id="dashboard"  class="text-decoration-none text-dark links" data-tippy-content="Dashboard">
                     <i class="ri-dashboard-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
             <li class="text-center mt-3">
-                <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Estoque">
+                <a href="<?=url('aplication/stock')?>" id="estoque" class="text-decoration-none text-dark links" data-tippy-content="Estoque">
                     <i class="ri-roadster-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
             <li class="text-center mt-3">
-                <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Usuários">
+                <a href="#" id="usuarios" class="text-decoration-none text-dark links" data-tippy-content="Usuários">
                     <i class="ri-user-2-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
             <li class="text-center mt-3">
-                <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Financeiro">
+                <a href="#" id="financeiro" class="text-decoration-none text-dark links"  data-tippy-content="Financeiro">
                     <i class="ri-coins-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
             <li class="text-center mt-3">
-                <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Relatórios">
+                <a href="#" id="relatorios" class="text-decoration-none text-dark links" data-tippy-content="Relatórios">
                     <i class="ri-funds-box-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
             <li class="text-center mt-3">
-                <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Documentos">
+                <a href="#" id="documentos" class="text-decoration-none text-dark links" data-tippy-content="Documentos">
                     <i class="ri-folder-5-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
             <li class="text-center mt-3">
-                <a href="#" class="text-decoration-none text-dark links" data-tippy-content="SMS">
+                <a href="#" id="sms" class="text-decoration-none text-dark links" data-tippy-content="SMS">
                     <i class="ri-smartphone-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
             <li class="text-center mt-3">
-                <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Suporte">
+                <a href="#" id="suporte" class="text-decoration-none text-dark links" data-tippy-content="Suporte">
                     <i class="ri-customer-service-2-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
             <li class="text-center mt-3">
-                <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Configuração">
+                <a href="#" id="configuracao" class="text-decoration-none text-dark links" data-tippy-content="Configuração">
                     <i class="ri-settings-4-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>

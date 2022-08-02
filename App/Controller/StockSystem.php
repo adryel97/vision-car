@@ -29,7 +29,8 @@ class StockSystem extends Stock
             'codeUser' => $this->startUser->code_users,
             'nameUser' => $this->startUser->name_users,
             'avatar' =>  $this->slugify->slugify($this->startUser->name_users, ''),
-            'title' => 'Estoque'
+            'title' => 'Estoque',
+            'page' => 'estoque',
         ]);
     }
 

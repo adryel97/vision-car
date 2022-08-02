@@ -9,4 +9,10 @@
 tippy('.links', {
   placement: 'right-end'
 });
+$(document).ready(function () {
+  var page = $('#list_items').attr('page');
+    console.log(page);
+    $(page).removeClass('text-dark');
+    $(page).addClass('text-primary');
+  });
 </script>
