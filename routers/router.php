@@ -21,24 +21,20 @@ $router->get('/', 'PageSite:viewHome', 'home.website'); //VIEW
  */
 
 $router->namespace('App\Controller')->group('aplication'); //GROUP APLICATION
-/***************
- * START LOGIN
- ***************/
+
+/* ================START LOGIN====================== */
 $router->get('/login', 'LoginSystem:viewLogin', 'login.aplication'); //VIEW
 $router->post('/', 'LoginSystem:loginUser', 'login.action'); //VALIDATION
 $router->get('/logout', 'LoginSystem:logoutUser', 'logout.action'); //LOGOUT
-/****************
- * END LOGIN
- ****************/
+/* ================END LOGIN====================== */
 
- /******************
-  * START DASHBOARD
-  ******************/
+/* ================START STOCK======================= */
+$router->get('/stock', 'StockSystem:viewStock', 'stock.aplication'); //VIEW
+/* ================END STOCK======================= */
+
+/* ================START DASHBOARD======================= */
 $router->get('/dashboard', 'DashboardSystem:viewDashboard', 'dashboard.aplication'); //VIEW
- /******************
-  * END DASHBOARD
-  ******************/
-
+/* =================END DASHBOARD======================= */
 $router->dispatch();
 
 if ($router->error()) {
