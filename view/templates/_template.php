@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?=url();?>/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?=url();?>/node_modules/remixicon/fonts/remixicon.css">
     <link rel="stylesheet" href="<?=url();?>/node_modules/overlayscrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="<?=url();?>/node_modules/animate.css/animate.min.css">
     <?=$this->section('css');?>
 </head>
 <body>
