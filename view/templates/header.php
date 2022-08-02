@@ -7,9 +7,15 @@
                 <div class="me-3">
                     <i class="ri-account-circle-line" style="font-size: 2rem"></i>
                 </div>
-                <div>
-                   <p class="m-0 fw-semibold">Usuário</p>
-                   <p class="text-gray m-0" style="font-size: 0.80rem">Loja 2</p>
+                <div class="dropdown" style="cursor: pointer">
+                    <div  data-bs-toggle="dropdown" aria-expanded="false">
+                        <p class="m-0 fw-semibold">Usuário <span><i class="ri-arrow-drop-down-line center-icon" style="font-size: 1.3rem"></i></span></p>
+                        <p class="text-gray m-0" style="font-size: 0.80rem">Loja 2</p>
+                    </div>
+                    <ul class="dropdown-menu border-0 shadow">
+                        <li><a class="dropdown-item" href="#"><i class="ri-user-settings-line center-icon" style="font-size: 1.0rem"></i> Perfil</a></li>
+                        <li><a class="dropdown-item" href="<?=$router->route('logout.action')?>"><i class="ri-shut-down-line center-icon" style="font-size: 1.0rem"></i> Sair</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
