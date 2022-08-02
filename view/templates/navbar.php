@@ -5,57 +5,51 @@
                  <img src="<?=url()?>/img/logo/logo_vision.png" width="60px">   
             </li>
         </ul>
-        <ul class="list-style-none mt-5" 
-            style="height: 350px" 
+        <ul class="list-style-none mt-5 vh-100" 
             id="list_items">
             <li class="text-center">
                 <a href="<?=url('aplication/dashboard')?>" class="text-decoration-none text-dark links" data-tippy-content="Dashboard">
                     <i class="ri-dashboard-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
-            <li class="text-center mt-4">
-                <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Veículos">
+            <li class="text-center mt-3">
+                <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Estoque">
                     <i class="ri-roadster-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
-            <li class="text-center mt-4">
+            <li class="text-center mt-3">
                 <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Usuários">
                     <i class="ri-user-2-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
-            <li class="text-center mt-4">
+            <li class="text-center mt-3">
                 <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Financeiro">
                     <i class="ri-coins-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
-            <li class="text-center mt-4">
+            <li class="text-center mt-3">
                 <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Relatórios">
                     <i class="ri-funds-box-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
-            <li class="text-center mt-4">
+            <li class="text-center mt-3">
                 <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Documentos">
                     <i class="ri-folder-5-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
-            <li class="text-center mt-4">
+            <li class="text-center mt-3">
                 <a href="#" class="text-decoration-none text-dark links" data-tippy-content="SMS">
                     <i class="ri-smartphone-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
-            <li class="text-center mt-4">
+            <li class="text-center mt-3">
                 <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Suporte">
                     <i class="ri-customer-service-2-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
-            <li class="text-center mt-4">
+            <li class="text-center mt-3">
                 <a href="#" class="text-decoration-none text-dark links" data-tippy-content="Configuração">
                     <i class="ri-settings-4-line" style="font-size: 1.5rem"></i>
-                </a>
-            </li>
-            <li class="text-center mt-4">
-                <a href="<?=$router->route('logout.action')?>" class="text-decoration-none text-dark links" data-tippy-content="Sair">
-                    <i class="ri-shut-down-line" style="font-size: 1.5rem"></i>
                 </a>
             </li>
         </ul>
