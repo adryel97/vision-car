@@ -27,7 +27,6 @@
         </div>
         <?php require './view/templates/footer.php' ?>
         <?=$this->section("js");?>
-        <script src="<?=url();?>/node_modules/overlayscrollbars/js/jquery.overlayScrollbars.min.js"></script>
         <script>
             $(document).ready(function () {
                 $('#list_items').overlayScrollbars({
