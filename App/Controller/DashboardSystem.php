@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Model\User;
 use League\Plates\Engine;
+use Cocur\Slugify\Slugify;
 
 class DashboardSystem
 {
@@ -19,11 +20,14 @@ class DashboardSystem
         $this->view = new Engine(__DIR__ . '/../../view/templates', 'php');
         $this->router = $router;
         $this->user = new User();
+        $this->slugify = new Slugify();
         $this->startUser = User::startUser();
         $this->view->addData([
             'router' => $router,
             'idUser' => $this->startUser->id_users,
             'codeUser' => $this->startUser->code_users,
+            'nameUser' => $this->startUser->name_users,
+            'avatar' =>  $this->slugify->slugify($this->startUser->name_users, ''),
             'title' => 'Dashboard'
         ]);
     }
