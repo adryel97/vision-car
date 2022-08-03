@@ -35,6 +35,7 @@ $router->get('/stock', 'StockSystem:viewStock', 'stock.aplication'); //VIEW
 /* ================START DASHBOARD======================= */
 $router->get('/dashboard', 'DashboardSystem:viewDashboard', 'dashboard.aplication'); //VIEW
 /* =================END DASHBOARD======================= */
+
 $router->dispatch();
 
 if ($router->error()) {
