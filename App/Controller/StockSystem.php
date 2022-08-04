@@ -46,4 +46,17 @@ class StockSystem extends Stock
             $this->router->redirect($this->router->route('login.aplication'));
         }
     }
+
+    public function findStock()
+    {
+        if ($_SESSION['logged'] == true) {
+            $idShops = $this->startUser->id_shops;
+            $stock = new Stock();
+            $findStock = ["data" => $stock->getStock($idShops)];
+    
+            echo json_encode($findStock);
+        } else {
+            $this->router->redirect($this->router->route('login.aplication'));
+        }
+    }
 }

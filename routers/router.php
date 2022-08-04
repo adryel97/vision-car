@@ -30,6 +30,7 @@ $router->get('/logout', 'LoginSystem:logoutUser', 'logout.action'); //LOGOUT
 
 /* ================START STOCK======================= */
 $router->get('/stock', 'StockSystem:viewStock', 'stock.aplication'); //VIEW
+$router->get('/stock/find', 'StockSystem:findStock', 'findStock.aplication'); //VIEW
 /* ================END STOCK======================= */
 
 /* ================START DASHBOARD======================= */

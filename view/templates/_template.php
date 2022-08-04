@@ -21,7 +21,7 @@
         <div style="padding-left: 80px">
             <main class="pb-4 position-relative">
                 <div id="curved-corner-bottomleft"></div>
-                <div class="pt-5 ps-5">
+                <div class="pt-5 ps-5 pe-5">
                     <?=$this->section('content');?>
                 </div>
             </main>

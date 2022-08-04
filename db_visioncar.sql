@@ -37,6 +37,34 @@ CREATE TABLE `tbl_shops` (
 
 insert  into `tbl_shops`(`id_shops`,`name_shops`,`code_shops`,`city_shops`,`state_shops`,`status_shops`,`poster_shops`,`address_shops`,`create_shops`) values (1,'Loja 1','TB7E4MxhH5JujnFi97t5EpD5KIzvqjZUPtrVdFKI','Brusque','SC','active','yes','R. Elvira da Silva, Nº140, Bairro Limeira','2022-07-29 15:39:20');
 
+/*Table structure for table `tbl_stock` */
+
+DROP TABLE IF EXISTS `tbl_stock`;
+
+CREATE TABLE `tbl_stock` (
+  `id_vehicle` int(11) NOT NULL AUTO_INCREMENT,
+  `brand_vehicle` varchar(100) NOT NULL,
+  `model_vehicle` varchar(100) NOT NULL,
+  `version_vehicle` varchar(100) NOT NULL,
+  `type_vehicle` varchar(100) NOT NULL,
+  `price_vehicle` decimal(11,2) NOT NULL,
+  `year_vehicle` year(4) NOT NULL,
+  `price_fipe_vehicle` decimal(11,2) DEFAULT NULL,
+  `year_fipe_vehicle` year(4) DEFAULT NULL,
+  `model_fipe_vehicle` varchar(100) DEFAULT NULL,
+  `code_fipe_vehicle` int(11) DEFAULT NULL,
+  `cod_shop_vehicle` int(11) DEFAULT NULL,
+  `cod_name_created` varchar(100) DEFAULT NULL,
+  `cod_user_created` int(11) DEFAULT NULL,
+  `status_vehicle` enum('active','disabled','sold') DEFAULT NULL,
+  `date_create_vehicle` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_vehicle`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `tbl_stock` */
+
+insert  into `tbl_stock`(`id_vehicle`,`brand_vehicle`,`model_vehicle`,`version_vehicle`,`type_vehicle`,`price_vehicle`,`year_vehicle`,`price_fipe_vehicle`,`year_fipe_vehicle`,`model_fipe_vehicle`,`code_fipe_vehicle`,`cod_shop_vehicle`,`cod_name_created`,`cod_user_created`,`status_vehicle`,`date_create_vehicle`) values (1,'Ford','Fiesta','SE Style 1.6 16V','carro','63104.00',2019,'60272.00',2019,'Fiesta SE Style 1.6 16V Flex Mec. 5p',3430,1,'Adryel Giovaniny',1,'active','2022-08-03 17:06:36'),(2,'Chevrolet','Celta','Life 1.0','carro','15318.00',2006,'14572.00',2006,'Celta Life 1.0 MPFI VHC 8V 3p',4264,1,'Adryel Giovaniny',1,'sold','2022-08-03 17:06:36'),(3,'BMW','320i','M Sport 2.0T 16v','carro','320000.00',2022,'257849.00',2022,'320i M Sport 2.0T 16v A/T',9165,1,'Adryel Giovaniny',1,'disabled','2022-08-04 14:24:24');
+
 /*Table structure for table `tbl_users` */
 
 DROP TABLE IF EXISTS `tbl_users`;
@@ -45,7 +73,7 @@ CREATE TABLE `tbl_users` (
   `id_users` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codigo inteiro do usuario',
   `name_users` varchar(100) DEFAULT NULL COMMENT 'Nome do usuario',
   `email_users` varchar(100) DEFAULT NULL COMMENT 'Email do usuario',
-  `password_users` varchar(20) DEFAULT NULL COMMENT 'Senha do usuario',
+  `password_users` varchar(100) DEFAULT NULL COMMENT 'Senha do usuario',
   `birth_users` date DEFAULT NULL COMMENT 'Data de aniversario',
   `phone_users` text DEFAULT NULL COMMENT 'Telefone do usuario json',
   `type_users` enum('1','2','3','4','5','6') DEFAULT NULL COMMENT 'Categoria do usuario',
@@ -59,7 +87,7 @@ CREATE TABLE `tbl_users` (
 
 /*Data for the table `tbl_users` */
 
-insert  into `tbl_users`(`id_users`,`name_users`,`email_users`,`password_users`,`birth_users`,`phone_users`,`type_users`,`status_users`,`date_create_users`,`code_users`,`id_shops`,`cod_shops`) values (1,'Adryel Giovaniny','adryel@gmail.com','123456','1997-08-06','(47) 99212-3497','1','active','2022-07-29 15:00:16','Dz3Xfk4LK6l7wU4Zv24jZRXoheh8e8',1,'TB7E4MxhH5JujnFi97t5EpD5KIzvqjZUPtrVdFKI');
+insert  into `tbl_users`(`id_users`,`name_users`,`email_users`,`password_users`,`birth_users`,`phone_users`,`type_users`,`status_users`,`date_create_users`,`code_users`,`id_shops`,`cod_shops`) values (1,'Adryel Giovaniny','adryel@gmail.com','e10adc3949ba59abbe56e057f20f883e','1997-08-06','(47) 99212-3497','1','active','2022-07-29 15:00:16','Dz3Xfk4LK6l7wU4Zv24jZRXoheh8e8',1,'TB7E4MxhH5JujnFi97t5EpD5KIzvqjZUPtrVdFKI');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
