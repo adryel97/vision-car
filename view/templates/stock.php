@@ -7,6 +7,9 @@ $this->layout('_template');
 
 <h1 class="mb-5">Estoque</h1>
 
+<div class="mb-3">
+    <a href="#" class="btn btn-primary p-3 text-white"><span class="fw-medium">Adicionar veículo</span> <i class="ri-roadster-fill center-icon ms-3" style="font-size: 1.2rem"></i></a>
+</div>
 <div class="card p-5 border-0 border-top border-3 shadow border-primary">
     <table id="example" class="table" style="width:100%">
             <thead>
@@ -14,7 +17,7 @@ $this->layout('_template');
                     <th>ID</th>
                     <th>Marca</th>
                     <th>Modelo</th>
-                    <th>Versao</th>
+                    <th>Versão</th>
                     <th>Tipo</th>
                     <th>Valor</th>
                     <th>Data de entrada</th>

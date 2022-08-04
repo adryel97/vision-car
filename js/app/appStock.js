@@ -56,7 +56,7 @@ function listStock()
 
                     
                   var editar = `<a class="dropdown-item" href="${url}/aplication/vehicle/edit/${data.id_vehicle}"><i class="ri-edit-line"></i> Editar</a>`;
-                  var excluir = `<a class="dropdown-item"><i class="ri-delete-bin-7-line"></i> Excluir</a>`;
+                  var excluir = `<a class="dropdown-item text-danger"><i class="ri-delete-bin-7-line"></i> Excluir</a>`;
                   var toview = `<a style="cursor: pointer;" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#toviewModal"  onclick='toView(${dataInfo})'><i class="ri-eye-line"></i> Visualizar</a>`;
                   var vender = status == 'disabled' ? '' : status == 'active' ? `<li><a class="dropdown-item"><i class="ri-shopping-bag-line"></i> Vender</a></li>` : '';
 
@@ -100,6 +100,7 @@ function toView(data)
 {
     console.log(data);
     console.log(data.brand_vehicle);
+    var valorFipe = parseInt(data.price_fipe_vehicle);
     var status = '';
     if(data.format_status == 'Ativo'){
         status = `<span class="badge text-bg-success text-white">${data.format_status}</span>`
@@ -111,47 +112,105 @@ function toView(data)
     $('#titleView').html(`${data.brand_vehicle} - ${data.model_vehicle} ${data.version_vehicle}`)
     $('#contentView').html(`
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+            <li class="list-group-item list-group-item-primary">
+                <div class="row row-cols-1">
+                    <div class="col fw-bold text-center">INFORMAÇÕES DO VEÍCULO</div>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-primary">
                 <div class="row row-cols-2">
                     <div class="col fw-bold">Tipo:</div>
                     <div class="col text-capitalize">${data.type_vehicle}</div>
                 </div>
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item list-group-item-primary">
                 <div class="row row-cols-2">
                     <div class="col fw-bold">Marca:</div>
                     <div class="col">${data.brand_vehicle}</div>
                 </div>
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item list-group-item-primary">
                 <div class="row row-cols-2">
                     <div class="col fw-bold">Modelo:</div>
                     <div class="col">${data.model_vehicle}</div>
                 </div>
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item list-group-item-primary">
                 <div class="row row-cols-2">
                     <div class="col fw-bold">Versão:</div>
                     <div class="col">${data.version_vehicle}</div>
                 </div>
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item list-group-item-primary">
                 <div class="row row-cols-2">
                     <div class="col fw-bold">Ano:</div>
                     <div class="col">${data.year_vehicle}</div>
                 </div>
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item list-group-item-primary">
                 <div class="row row-cols-2">
                     <div class="col fw-bold">Preço:</div>
                     <div class="col">${data.format_price_vehicle}</div>
                 </div>
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item list-group-item-primary">
                 <div class="row row-cols-2">
                     <div class="col fw-bold">Status:</div>
                     <div class="col">
                         ${status}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-primary">
+                <div class="row row-cols-2">
+                    <div class="col fw-bold">Data de entrada:</div>
+                    <div class="col">
+                        ${data.format_date_create}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-primary">
+                <div class="row row-cols-2">
+                    <div class="col fw-bold">Quem cadastrou:</div>
+                    <div class="col">
+                        ${data.cod_name_created}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-info">
+                <div class="row row-cols-1">
+                    <div class="col fw-bold text-center">TABELA FIPE</div>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-info">
+                <div class="row row-cols-2">
+                    <div class="col fw-bold">Modelo FIPE:</div>
+                    <div class="col">
+                        ${data.model_fipe_vehicle}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-info">
+                <div class="row row-cols-2">
+                    <div class="col fw-bold">Codigo FIPE:</div>
+                    <div class="col">
+                        ${data.code_fipe_vehicle}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-info">
+                <div class="row row-cols-2">
+                    <div class="col fw-bold">Ano FIPE:</div>
+                    <div class="col">
+                        ${data.year_fipe_vehicle}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-info">
+                <div class="row row-cols-2">
+                    <div class="col fw-bold">Preço FIPE:</div>
+                    <div class="col">
+                        ${valorFipe.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
                     </div>
                 </div>
             </li>
