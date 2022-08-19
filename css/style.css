@@ -1,6 +1,6 @@
 html, body {
     background-color: #EDF2F9;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .center-icon {

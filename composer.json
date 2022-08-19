@@ -15,7 +15,8 @@
         "victorybiz/geoip-location": "^1.1",
         "jamosaur/randstring": "^1.2",
         "guzzlehttp/guzzle": "^7.4",
-        "jansenfelipe/cnpj-gratis": "^2.1"
+        "jansenfelipe/cnpj-gratis": "^2.1",
+        "cboden/ratchet": "^0.4.4"
     },
     "autoload": {
         "psr-4": {

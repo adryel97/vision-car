@@ -2,11 +2,10 @@
 namespace App\Controller;
 
 use App\Model\User;
-use App\Model\Stock;
 use League\Plates\Engine;
 use Cocur\Slugify\Slugify;
 
-class StockSystem extends Stock 
+class VehicleSystem 
 {
     private $view;
 
@@ -37,23 +36,10 @@ class StockSystem extends Stock
     /**
      * If the user is logged in, render the stock page, otherwise redirect to the login page.
      */
-    public function viewStock()
+    public function viewVehicle()
     {
         if ($_SESSION['logged'] == true) {
-            echo $this->view->render('stock');
-        } else {
-            $this->router->redirect($this->router->route('login.aplication'));
-        }
-    }
-
-    public function findStock()
-    {
-        if ($_SESSION['logged'] == true) {
-            $idShops = $this->startUser->id_shops;
-            $stock = new Stock();
-            $findStock = ["data" => $stock->getStock($idShops)];
-    
-            echo json_encode($findStock);
+            echo $this->view->render('createVehicle');
         } else {
             $this->router->redirect($this->router->route('login.aplication'));
         }

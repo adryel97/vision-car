@@ -4,8 +4,7 @@ namespace App\Model;
 use CoffeeCode\DataLayer\Connect;
 use CoffeeCode\DataLayer\DataLayer;
 
-class Stock extends DataLayer
-{
+class Stock extends DataLayer {
     /**
      * User construct
      * @return construct

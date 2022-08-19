@@ -1,7 +1,7 @@
 $(document).ready(function () {
     listStock();
 });
-
+//<"d-flex mb-4" f><"nowrap table-responsive" t><"d-flex justify-content-between" ip>
 function listStock()
 {
     var table = $('#example').DataTable({
@@ -11,6 +11,13 @@ function listStock()
             paginate: {
                 previous: '<i class="ri-arrow-left-s-line center-icon m-0"></i>',
                 next: '<i class="ri-arrow-right-s-line center-icon m-0"></i>'
+            },
+            searchPanes: {
+                title: {
+                    _: 'Filtros selecionados - %d',
+                    0: 'Nenhum filtro selecionado',
+                    1: 'Um filtro selecionado',
+                }
             }
         },
         bFilter: true,
@@ -18,21 +25,36 @@ function listStock()
         ordering: false,
         displayStart: 20,
         lengthChange: false,
-        dom: '<"d-flex mb-4" f><"nowrap table-responsive" t><"d-flex justify-content-between" ip>',
+        dom: 'P <"d-flex mb-4" f><"nowrap table-responsive" t><"d-flex justify-content-between" ip>',
+        searching: true,
+        searchPanes:{
+            clear: false,
+            cascadePanes: true,
+            initCollapsed: true,
+            layout: 'columns-1',
+            collapse: false,
+        },
+        columnDefs:[{
+            searchPanes:{
+                show: true,
+            },
+            targets: [1, 2, 3, 4, 5, 6, 7],
+        }],
+        responsive: true,
         ajax: url+'/aplication/stock/find',
         createdRow: function(row, data, dataIndex) {
             let id = data.id_vehicle;
-            $(row).prop('id', id).data('id', id); 
+            $(row).prop('id', id).data('id', id);
         },
         rowCallback: function(row, data, index) {
             if (data.format_status == "Ativo") {
-              $("td:eq(7)", row).addClass("text-success");
+              $("td:eq(8)", row).addClass("text-success");
             } else if(data.format_status == "Inativo"){
-                $("td:eq(7)", row).addClass("text-danger");
+                $("td:eq(8)", row).addClass("text-danger");
             } else {
-                $("td:eq(7)", row).addClass("text-primary");
+                $("td:eq(8)", row).addClass("text-primary");
             }
-            $("td:eq(4)", row).addClass("text-capitalize");
+            $("td:eq(5)", row).addClass("text-capitalize");
             $("td:eq(0)", row).html(`<span class="fw-medium">#${data.id_vehicle}</span>`);
         },
         
@@ -41,6 +63,7 @@ function listStock()
             { data: 'brand_vehicle' },
             { data: 'model_vehicle' },
             { data: 'version_vehicle' },
+            { data: 'board_vehicle' },
             { data: 'type_vehicle' },
             { data: 'format_price_vehicle' },
             { data: 'format_date_create'},
@@ -54,7 +77,11 @@ function listStock()
                   var status = data.status_vehicle;
                   var dataInfo = JSON.stringify(data);
 
-                    
+                  table.searchPanes()
+                  $("div.dtsp-verticalPanes").append(table.searchPanes.container());
+
+                  $('.dtsp-subRow2 div .dtsp-nameButton').addClass('p-3');
+                  
                   var editar = `<a class="dropdown-item" href="${url}/aplication/vehicle/edit/${data.id_vehicle}"><i class="ri-edit-line"></i> Editar</a>`;
                   var excluir = `<a class="dropdown-item text-danger"><i class="ri-delete-bin-7-line"></i> Excluir</a>`;
                   var toview = `<a style="cursor: pointer;" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#toviewModal"  onclick='toView(${dataInfo})'><i class="ri-eye-line"></i> Visualizar</a>`;

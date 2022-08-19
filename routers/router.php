@@ -4,7 +4,6 @@ require 'vendor/autoload.php';
 
 use CoffeeCode\Router\Router;
 
-
 $router = new Router(ROOT);
 /*****************
  * START SITE
@@ -32,6 +31,10 @@ $router->get('/logout', 'LoginSystem:logoutUser', 'logout.action'); //LOGOUT
 $router->get('/stock', 'StockSystem:viewStock', 'stock.aplication'); //VIEW
 $router->get('/stock/find', 'StockSystem:findStock', 'findStock.aplication'); //VIEW
 /* ================END STOCK======================= */
+
+/* ================START VEHICLE======================= */
+$router->get('/create/vehicle', 'VehicleSystem:viewVehicle', 'vehicle.aplication'); //VIEW
+/* ================END VEHICLE======================= */
 
 /* ================START DASHBOARD======================= */
 $router->get('/dashboard', 'DashboardSystem:viewDashboard', 'dashboard.aplication'); //VIEW
