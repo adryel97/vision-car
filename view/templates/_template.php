@@ -13,6 +13,20 @@
     <link rel="stylesheet" href="<?=url();?>/node_modules/overlayscrollbars/css/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="<?=url();?>/node_modules/animate.css/animate.min.css">
     <?=$this->section('css');?>
+    <style>
+        .loading{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: calc(100% - 80px);
+            background: #fff;
+            height: calc(100vh - 66px);
+            z-index: 30;
+        }
+    </style>
 </head>
 <body>
     <div class="position-relative">
@@ -26,10 +40,19 @@
                 </div>
             </main>
         </div>
+        <div class="loading">
+            <div class="spinner-border text-primary" role="status" style="width: 4rem; height: 4rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
         <?php require './view/templates/footer.php' ?>
         <?=$this->section("js");?>
         <script>
             $(document).ready(function () {
+                $('.loading').show();
+                $('body, html').css({
+                    'overflow-y': 'hidden',
+                })
                 $('#list_items').overlayScrollbars({
                     className       : "os-theme-dark",
                     sizeAutoCapable : true,
@@ -38,6 +61,15 @@
                         clickScrolling : true
                     }
                 }); 
+            });
+
+            $(window).on("load", function() {
+                setTimeout(function(){
+                    $('.loading').remove();
+                    $('body, html').css({
+                    'overflow-y': 'auto',
+                })
+                }, 700); 
             });
         </script>
     </div>
