@@ -13,6 +13,7 @@ function listStock()
                 next: '<i class="ri-arrow-right-s-line center-icon m-0"></i>'
             },
             searchPanes: {
+                clearMessage: 'Limpar Filtro',
                 title: {
                     _: 'Filtros selecionados - %d',
                     0: 'Nenhum filtro selecionado',
@@ -25,34 +26,51 @@ function listStock()
         ordering: false,
         displayStart: 20,
         lengthChange: false,
-        dom: 'P <"d-flex mb-4" f><"nowrap table-responsive" t><"d-flex justify-content-between" ip>',
+        buttons: [
+            `
+            <button type="button" class="btn btn-secondary ms-3 btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="ri-filter-line"></i>
+            </button> 
+            `
+        ],
+        dom: `P <"d-flex mb-4" f B> <"nowrap table-responsive" t><"d-flex justify-content-between" ip>`,
         searching: true,
         searchPanes:{
-            clear: false,
+            clear: true,
             cascadePanes: true,
             initCollapsed: true,
-            layout: 'columns-1',
+            layout: 'columns-4',
             collapse: false,
+            targets: [9],
         },
-        columnDefs:[{
-            searchPanes:{
-                show: true,
+        columnDefs:[
+            {
+                searchPanes:{
+                    show: true,
+                },
+                targets: [1, 2, 3, 4, 5, 6, 7, 8]
             },
-            targets: [1, 2, 3, 4, 5, 6, 7],
-        }],
+            {
+                searchPanes:{
+                    show: false,
+                },
+                targets: [9]
+            }
+        ],
         responsive: true,
         ajax: url+'/aplication/stock/find',
+        deferRender: true,
         createdRow: function(row, data, dataIndex) {
             let id = data.id_vehicle;
             $(row).prop('id', id).data('id', id);
         },
         rowCallback: function(row, data, index) {
             if (data.format_status == "Ativo") {
-              $("td:eq(8)", row).addClass("text-success");
+              $("td:eq(8)", row).addClass("text-success fw-bold");
             } else if(data.format_status == "Inativo"){
-                $("td:eq(8)", row).addClass("text-danger");
+                $("td:eq(8)", row).addClass("text-danger fw-bold");
             } else {
-                $("td:eq(8)", row).addClass("text-primary");
+                $("td:eq(8)", row).addClass("text-primary fw-bold");
             }
             $("td:eq(5)", row).addClass("text-capitalize");
             $("td:eq(0)", row).html(`<span class="fw-medium">#${data.id_vehicle}</span>`);
@@ -79,8 +97,6 @@ function listStock()
 
                   table.searchPanes()
                   $("div.dtsp-verticalPanes").append(table.searchPanes.container());
-
-                  $('.dtsp-subRow2 div .dtsp-nameButton').addClass('p-3');
                   
                   var editar = `<a class="dropdown-item" href="${url}/aplication/vehicle/edit/${data.id_vehicle}"><i class="ri-edit-line"></i> Editar</a>`;
                   var excluir = `<a class="dropdown-item text-danger"><i class="ri-delete-bin-7-line"></i> Excluir</a>`;
