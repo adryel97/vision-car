@@ -1,0 +1,1 @@
+var conectApiFipe = 'https://parallelum.com.br/fipe/api/v2';

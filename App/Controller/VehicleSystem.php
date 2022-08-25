@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Model\User;
 use League\Plates\Engine;
 use Cocur\Slugify\Slugify;
+use App\Controller\TableFipe;
 
 class VehicleSystem 
 {
@@ -21,6 +22,7 @@ class VehicleSystem
         $this->router = $router;
         $this->user = new User();
         $this->slugify = new Slugify();
+        $this->fipe = new TableFipe();
         $this->startUser = User::startUser();
         $this->view->addData([
             'router' => $router,
@@ -39,7 +41,7 @@ class VehicleSystem
     public function viewVehicle()
     {
         if ($_SESSION['logged'] == true) {
-            echo $this->view->render('createVehicle');
+            echo $this->view->render('createVehicle', ['brands' => $this->fipe->findBrandFipe()]);
         } else {
             $this->router->redirect($this->router->route('login.aplication'));
         }

@@ -40,6 +40,11 @@ $router->get('/create/vehicle', 'VehicleSystem:viewVehicle', 'vehicle.aplication
 $router->get('/dashboard', 'DashboardSystem:viewDashboard', 'dashboard.aplication'); //VIEW
 /* =================END DASHBOARD======================= */
 
+
+/* ================START DASHBOARD======================= */
+$router->get('/gerar/marcas', 'Generate:getFileCSV'); //VIEW
+/* =================END DASHBOARD======================= */
+
 $router->dispatch();
 
 if ($router->error()) {
