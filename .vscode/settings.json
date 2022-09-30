@@ -2,5 +2,6 @@
     "docwriter.progress.trackClasses": false,
     "docwriter.progress.trackMethods": true,
     "docwriter.progress.trackFunctions": false,
-    "docwriter.progress.trackTypes": true
+    "docwriter.progress.trackTypes": true,
+    "docwriter.style": "Auto-detect"
 }

@@ -39,22 +39,22 @@ function listStock()
             clear: true,
             cascadePanes: true,
             initCollapsed: true,
-            layout: 'columns-4',
+            layout: 'columns-5',
             collapse: false,
-            targets: [9],
+            targets: [10],
         },
         columnDefs:[
             {
                 searchPanes:{
                     show: true,
                 },
-                targets: [1, 2, 3, 4, 5, 6, 7, 8]
+                targets: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
             },
             {
                 searchPanes:{
                     show: false,
                 },
-                targets: [9]
+                targets: [11]
             }
         ],
         responsive: true,
@@ -66,13 +66,14 @@ function listStock()
         },
         rowCallback: function(row, data, index) {
             if (data.format_status == "Ativo") {
-              $("td:eq(8)", row).addClass("text-success fw-bold");
+              $("td:eq(10)", row).addClass("text-success fw-bold");
             } else if(data.format_status == "Inativo"){
-                $("td:eq(8)", row).addClass("text-danger fw-bold");
+                $("td:eq(10)", row).addClass("text-danger fw-bold");
             } else {
-                $("td:eq(8)", row).addClass("text-primary fw-bold");
+                $("td:eq(10)", row).addClass("text-primary fw-bold");
             }
-            $("td:eq(5)", row).addClass("text-capitalize");
+            $("td:eq(4)", row).addClass("text-capitalize");
+            $("td:eq(7)", row).addClass("text-capitalize");
             $("td:eq(0)", row).html(`<span class="fw-medium">#${data.id_vehicle}</span>`);
         },
         
@@ -80,11 +81,13 @@ function listStock()
             { data: 'id_vehicle' },
             { data: 'brand_vehicle' },
             { data: 'model_vehicle' },
-            { data: 'version_vehicle' },
             { data: 'board_vehicle' },
             { data: 'type_vehicle' },
             { data: 'format_price_vehicle' },
             { data: 'format_date_create'},
+            { data: 'category_vehicle'},
+            { data: 'city_vehicle'},
+            { data: 'state_vehicle'},
             { 
                 data: 'format_status',
                 class:'statusCell',
@@ -152,7 +155,8 @@ function toView(data)
     } else {
         status = `<span class="badge text-bg-danger text-white">${data.format_status}</span>`
     }
-    $('#titleView').html(`${data.brand_vehicle} - ${data.model_vehicle} ${data.version_vehicle}`)
+    
+    $('#titleView').html(`${data.brand_vehicle} - ${data.model_vehicle}`)
     $('#contentView').html(`
         <ul class="list-group list-group-flush">
             <li class="list-group-item list-group-item-primary">
@@ -176,12 +180,6 @@ function toView(data)
                 <div class="row row-cols-2">
                     <div class="col fw-bold">Modelo:</div>
                     <div class="col">${data.model_vehicle}</div>
-                </div>
-            </li>
-            <li class="list-group-item list-group-item-primary">
-                <div class="row row-cols-2">
-                    <div class="col fw-bold">Versão:</div>
-                    <div class="col">${data.version_vehicle}</div>
                 </div>
             </li>
             <li class="list-group-item list-group-item-primary">

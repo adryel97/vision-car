@@ -1,7 +1,7 @@
 <div class="bg-white vh-100 position-fixed" style="left:0; top:0; width: 80px;">
     <div>
         <ul class="list-style-none">
-            <li class="d-flex align-items-center justify-content-center mt-4">
+            <li class="d-flex align-items-center justify-content-center mt-4 mb-4">
                  <img src="<?=url()?>/img/logo/logo_vision.png" width="60px">   
             </li>
         </ul>

@@ -8,32 +8,88 @@ $this->layout('_template');
             <form class="row row-cols-2">
                 <section class="col">
                     <div class="form-floating mb-4">
-                        <select class="form-select" name="category" id="category" aria-label="Category label">
-                            <option selected="selected">Categorias</option>
-                            <option value="carro" attr-en="cars">Carro</option>
-                            <option value="moto" attr-en="motorcycles">Moto</option>
-                            <option value="caminhao" attr-en="trucks">Caminhao</option>
+                        <select class="form-select" name="type" id="type" aria-label="Type label">
+                            <option id-type="1" value="carro" attr-en="car">Carro</option>
+                            <option id-type="2" value="moto" attr-en="motorcycle">Moto</option>
+                            <option id-type="3" value="caminhao" attr-en="truck">Caminhão</option>
                         </select>
-                        <label for="category">Selecione a categoria</label>
+                        <label for="type">Selecione o tipo</label>
                     </div>
                     <div class="form-floating mb-4">
-                        <select  class="form-select" name="brand" id="floatingSelect" aria-label="Floating label select example">
+                        <select  class="form-select" name="brand" id="brand" aria-label="Floating label select example">
                             <option selected="selected">Marcas</option>
                             <?php
                             foreach ($brands as $brand):
-                            ?>
-                                <option value="<?=$brand['marca']?>" attr-id="<?=$brand['marca_id']?>"><?=$brand['marca']?></option>
+                                ?>
+                                <option value="<?=$brand['brand']?>" id-type="<?=$brand['id_type']?>" attr-id="<?=$brand['id_brand_fipe']?>"><?=$brand['brand']?></option>
                             <?php
                             endforeach;
-                            ?>
+?>
                         </select>
-                        <label for="floatingSelect">Selecione a marca</label>
+                        <label for="brands">Selecione a marca</label>
                     </div>
                     <div class="form-floating mb-4">
-                        <select  class="form-select" name="brand" id="floatingSelect" aria-label="Floating label select example">
+                        <select  class="form-select" disabled="disabled" name="model" id="model" aria-label="Floating label select example">
                             <option selected="selected">Modelos</option>
                         </select>
-                        <label for="floatingSelect">Selecione a marca</label>
+                        <label for="model">Selecione o modelo</label>
+                    </div>
+                    <div class="row row-cols-2">
+                        <div class="col">
+                            <div class="form-floating mb-4">
+                                <select  class="form-select" name="engine" id="engine" aria-label="Floating label select example">
+                                    <option selected="selected">Motores</option>
+                                    <?php
+                                    foreach ($engines as $engine):
+                                        ?>
+                                        <option value="<?=$engine['engine']?>" ><?=$engine['engine']?></option>
+                                    <?php
+                                    endforeach;
+?>
+                                </select>
+                                <label for="model">Selecione o motor</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="board" placeholder="board">
+                                <label for="board">Placa do veículo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2">
+                        <div class="col">
+                            <div class="form-floating mb-4">
+                                <select class="form-select" name="anoModel" id="anoModel" aria-label="Ano model label">
+                                    <option selected="selected">Ano modelo</option>
+                                    <?php
+                                        $ano = date('Y') + 1;
+for ($i=1980; $i <= $ano; $i++) {?>
+                                        <option value="<?=$i?>"><?=$i?></option>
+                                        <?php } ?>
+                                </select>
+                                <label for="anoModel">Selecione o ano do modelo</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-4">
+                                <select class="form-select" name="category" id="category" aria-label="category model label">
+                                    <option selected="selected">Categoria</option>
+                                    <option value="hatch">Hatch</option>
+                                    <option value="sedan">Sedan</option>
+                                    <option value="crossover">Crossover</option>
+                                    <option value="suv">Suv</option>
+                                    <option value="station wagons">Station Wagons</option>
+                                    <option value="picape">Picape</option>
+                                    <option value="subcompacto">Subcompacto</option>
+                                    <option value="furgão">Furgão</option>
+                                    <option value="conversivel">Conversivel</option>
+                                    <option value="esportivo">Esportivo</option>
+                                    <option value="coupe">Coupe</option>
+                                </select>
+                                <label for="category">Selecione o ano do modelo</label>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </form>
@@ -41,6 +97,18 @@ $this->layout('_template');
     </div>
 </div>
 <?php $this->start('js')?>
-    <script src="<?=url();?>/js/apis/apiFipe.js?v=<?=time()?>"></script>
     <script src="<?=url();?>/js/app/appCreateVehicle.js?v=<?=time()?>"></script>
+    <script>
+        $(document).ready(function(){
+            $("#board").inputmask({
+                mask: "AAA-9*99",
+                definitions: {
+                    '*': {
+                        validator: "[0-9A-Za-z]",
+                        casing: "upper"
+                    }
+                }
+            });
+        });
+    </script>
 <?php $this->end('js')?>

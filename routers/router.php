@@ -40,10 +40,14 @@ $router->get('/create/vehicle', 'VehicleSystem:viewVehicle', 'vehicle.aplication
 $router->get('/dashboard', 'DashboardSystem:viewDashboard', 'dashboard.aplication'); //VIEW
 /* =================END DASHBOARD======================= */
 
+/**
+ * CONSULTA FIPE
+ */
+$router->get('/fipe/brand/car', 'VehicleSystem:findBrandCar', 'fincar.aplication');
+$router->get('/fipe/brand/motorcycle', 'VehicleSystem:findBrandMotorCycle', 'findmotorcycle.aplication');
+$router->get('/fipe/brand/truck', 'VehicleSystem:findBrandTruck', 'findtruck.aplication');
 
-/* ================START DASHBOARD======================= */
-$router->get('/gerar/marcas', 'Generate:getFileCSV'); //VIEW
-/* =================END DASHBOARD======================= */
+$router->get('/fipe/models/{type}/{brandid}', 'VehicleSystem:findModels', 'findmodels.aplication');
 
 $router->dispatch();
 

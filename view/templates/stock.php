@@ -43,11 +43,13 @@ $this->layout('_template');
                       <th>ID</th>
                       <th>Marca</th>
                       <th>Modelo</th>
-                      <th>Versão</th>
                       <th>Placa</th>
                       <th>Tipo</th>
                       <th>Valor</th>
                       <th>Data de entrada</th>
+                      <th>Categoria</th>
+                      <th>Cidade</th>
+                      <th>Estado</th>
                       <th>Status</th>
                       <th>
                           Ação
