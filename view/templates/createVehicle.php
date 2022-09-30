@@ -91,6 +91,34 @@ for ($i=1980; $i <= $ano; $i++) {?>
                             </div>
                         </div>
                     </div>
+
+                    <div>
+                        <div class="priceFipe">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title fw-semibold">Preço Fipe</h5>
+                                <div class="row row-col-2 mt-4">
+                                    <div class="col border-bottom pb-3">
+                                        <p class="card-text fw-medium mb-0">
+                                            Ano Modelo: 2022
+                                        </p>
+                                        <p class="card-text fw-medium">
+                                            Preço: R$ 300.000
+                                        </p>
+                                    </div>
+                                    <div class="col border-bottom pb-3">
+                                        <p class="card-text fw-medium mb-0">
+                                            Ano Modelo: 2022
+                                        </p>
+                                        <p class="card-text fw-medium">
+                                            Preço: R$ 300.000
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </section>
             </form>
         </div>

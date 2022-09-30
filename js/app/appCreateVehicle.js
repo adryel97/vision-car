@@ -1,6 +1,7 @@
 $(document).ready(function () {
     getType();
     getModels();
+    getPriceFipe();
 });
 
 /**
@@ -81,3 +82,19 @@ $(document).ready(function () {
         `);
       });
     }
+
+function getPriceFipe()
+{
+  $('#model').change(function (e) { 
+    e.preventDefault();
+    var year = $(this).val();
+    var codFipe = $('#model').find('option:selected').attr('attr-id');
+    $.ajax({
+      type: "GET",
+      url: "https://brasilapi.com.br/api/fipe/preco/v1/"+codFipe,
+      dataType: "json",
+      success: function (data) {
+      }
+    });
+  });
+}
