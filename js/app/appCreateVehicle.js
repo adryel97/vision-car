@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('.priceFipe').hide()
     getType();
     getModels();
     getPriceFipe();
@@ -94,6 +95,38 @@ function getPriceFipe()
       url: "https://brasilapi.com.br/api/fipe/preco/v1/"+codFipe,
       dataType: "json",
       success: function (data) {
+        //console.log(data);
+        if(data){
+          $('.contentFipe').empty();
+          $('.priceFipe').show()
+          $('.modelcar').text(data[0].modelo);
+          $.each(data, function (index, value) { 
+            $('.contentFipe').append(`
+            <div class="col pb-3 pt-3 border-bottom border-2 lines">
+               <p class="card-text fw-medium mb-0">
+               <span class="text-muted">Ano Modelo:</span> ${value.anoModelo}
+               </p>
+               <p class="card-text fw-medium">
+               <span class="text-muted">Preço:</span> ${value.valor}
+               </p>
+           </div>
+            `);
+         });
+
+         var par = false
+         var countLines = $('.lines').length;
+          if(countLines % 2 === 0) {
+              par = true;
+          }
+          console.log(par);
+          if(par == true){
+              $('.lines:nth-last-child(-n+2)').removeClass('border-bottom border-2')
+          } else {
+              $('.lines:last-child').removeClass('border-bottom border-2')
+          }
+        } else {
+          $('.priceFipe').hide()
+        }
       }
     });
   });

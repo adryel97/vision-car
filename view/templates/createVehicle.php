@@ -3,7 +3,7 @@ $this->layout('_template');
 ?>
 <h1 class="mb-5">Cadastrar veículo</h1>
 <div class="cadastroVehicle">
-    <div class="card border-0">
+    <div class="card border-0 border-top border-primary border-3">
         <div class="card-body p-5">
             <form class="row row-cols-2">
                 <section class="col">
@@ -73,47 +73,42 @@ for ($i=1980; $i <= $ano; $i++) {?>
                         </div>
                         <div class="col">
                             <div class="form-floating mb-4">
-                                <select class="form-select" name="category" id="category" aria-label="category model label">
-                                    <option selected="selected">Categoria</option>
-                                    <option value="hatch">Hatch</option>
-                                    <option value="sedan">Sedan</option>
-                                    <option value="crossover">Crossover</option>
-                                    <option value="suv">Suv</option>
-                                    <option value="station wagons">Station Wagons</option>
-                                    <option value="picape">Picape</option>
-                                    <option value="subcompacto">Subcompacto</option>
-                                    <option value="furgão">Furgão</option>
-                                    <option value="conversivel">Conversivel</option>
-                                    <option value="esportivo">Esportivo</option>
-                                    <option value="coupe">Coupe</option>
+                                <select class="form-select" name="anoVersion" id="anoVersion" aria-label="Ano versao label">
+                                    <option selected="selected">Ano Versão</option>
+                                    <?php
+                                        $ano = date('Y') + 1;
+for ($i=1980; $i <= $ano; $i++) {?>
+                                        <option value="<?=$i?>"><?=$i?></option>
+                                        <?php } ?>
                                 </select>
-                                <label for="category">Selecione o ano do modelo</label>
+                                <label for="anoVersion">Selecione o ano da versão</label>
                             </div>
                         </div>
                     </div>
-
-                    <div>
+                        <div class="form-floating mb-4">
+                            <select class="form-select" name="category" id="category" aria-label="category model label">
+                                <option selected="selected">Categoria</option>
+                                <option value="hatch">Hatch</option>
+                                <option value="sedan">Sedan</option>
+                                <option value="crossover">Crossover</option>
+                                <option value="suv">Suv</option>
+                                <option value="station wagons">Station Wagons</option>
+                                <option value="picape">Picape</option>
+                                <option value="subcompacto">Subcompacto</option>
+                                <option value="furgão">Furgão</option>
+                                <option value="conversivel">Conversivel</option>
+                                <option value="esportivo">Esportivo</option>
+                                <option value="coupe">Coupe</option>
+                            </select>
+                            <label for="category">Selecione o ano do modelo</label>
+                        </div>
+                        </div>
                         <div class="priceFipe">
-                        <div class="card">
+                        <div class="card border-0 border-top border-bottom border-info border-3 shadow">
                             <div class="card-body">
-                                <h5 class="card-title fw-semibold">Preço Fipe</h5>
-                                <div class="row row-col-2 mt-4">
-                                    <div class="col border-bottom pb-3">
-                                        <p class="card-text fw-medium mb-0">
-                                            Ano Modelo: 2022
-                                        </p>
-                                        <p class="card-text fw-medium">
-                                            Preço: R$ 300.000
-                                        </p>
-                                    </div>
-                                    <div class="col border-bottom pb-3">
-                                        <p class="card-text fw-medium mb-0">
-                                            Ano Modelo: 2022
-                                        </p>
-                                        <p class="card-text fw-medium">
-                                            Preço: R$ 300.000
-                                        </p>
-                                    </div>
+                                <h5 class="card-title fw-semibold">Preço Fipe - <span class="modelcar"></span></h5> 
+                                <div class="row row-cols-2 mt-4 contentFipe">
+
                                 </div>
                             </div>
                         </div>
@@ -129,7 +124,7 @@ for ($i=1980; $i <= $ano; $i++) {?>
     <script>
         $(document).ready(function(){
             $("#board").inputmask({
-                mask: "AAA-9*99",
+                mask: "AAA9*99",
                 definitions: {
                     '*': {
                         validator: "[0-9A-Za-z]",
