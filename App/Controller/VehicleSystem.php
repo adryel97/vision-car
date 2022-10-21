@@ -33,6 +33,7 @@ class VehicleSystem
         $this->view->addData([
             'router' => $router,
             'idUser' => $this->startUser->id_users,
+            'idShop' => $this->startUser->id_shops,
             'codeUser' => $this->startUser->code_users,
             'nameUser' => $this->startUser->name_users,
             'avatar' =>  $this->slugify->slugify($this->startUser->name_users, ''),

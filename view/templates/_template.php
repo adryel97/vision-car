@@ -46,6 +46,7 @@
             </div>
         </div>
         <?php require './view/templates/footer.php' ?>
+        <script src="<?=url();?>/node_modules/currency.js/dist/currency.min.js"></script>
         <?=$this->section("js");?>
         <script>
             $(document).ready(function () {

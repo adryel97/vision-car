@@ -6,6 +6,12 @@ $this->layout('_template');
     <div class="card border-0 border-top border-primary border-3">
         <div class="card-body p-5">
             <form class="row row-cols-2">
+                <input hidden type="text" name="priceFipe" id="priceFipe">
+                <input hidden type="text" name="yearFipe" id="yearFipe">
+                <input hidden type="text" name="codeFipe" id="codeFipe">
+                <input hidden type="text" name="codShop" id="codShop"   value="<?=$idShop?>">
+                <input hidden type="text" name="nameUser" id="nameUser" value="<?=$nameUser?>">
+                <input hidden type="text" name="codUser" id="codUser"   value="<?=$idUser?>">
                 <section class="col">
                     <div class="form-floating mb-4">
                         <select class="form-select" name="type" id="type" aria-label="Type label">
@@ -24,7 +30,7 @@ $this->layout('_template');
                                 <option value="<?=$brand['brand']?>" id-type="<?=$brand['id_type']?>" attr-id="<?=$brand['id_brand_fipe']?>"><?=$brand['brand']?></option>
                             <?php
                             endforeach;
-?>
+                            ?>
                         </select>
                         <label for="brands">Selecione a marca</label>
                     </div>
@@ -45,7 +51,7 @@ $this->layout('_template');
                                         <option value="<?=$engine['engine']?>" ><?=$engine['engine']?></option>
                                     <?php
                                     endforeach;
-?>
+                                    ?>
                                 </select>
                                 <label for="model">Selecione o motor</label>
                             </div>
@@ -64,7 +70,7 @@ $this->layout('_template');
                                     <option selected="selected">Ano modelo</option>
                                     <?php
                                         $ano = date('Y') + 1;
-for ($i=1980; $i <= $ano; $i++) {?>
+                                        for ($i=1980; $i <= $ano; $i++) {?>
                                         <option value="<?=$i?>"><?=$i?></option>
                                         <?php } ?>
                                 </select>
@@ -77,7 +83,7 @@ for ($i=1980; $i <= $ano; $i++) {?>
                                     <option selected="selected">Ano Versão</option>
                                     <?php
                                         $ano = date('Y') + 1;
-for ($i=1980; $i <= $ano; $i++) {?>
+                                        for ($i=1980; $i <= $ano; $i++) {?>
                                         <option value="<?=$i?>"><?=$i?></option>
                                         <?php } ?>
                                 </select>
@@ -102,19 +108,55 @@ for ($i=1980; $i <= $ano; $i++) {?>
                             </select>
                             <label for="category">Selecione o ano do modelo</label>
                         </div>
-                        </div>
-                        <div class="priceFipe">
-                        <div class="card border-0 border-top border-bottom border-info border-3 shadow">
-                            <div class="card-body">
-                                <h5 class="card-title fw-semibold">Preço Fipe - <span class="modelcar"></span></h5> 
-                                <div class="row row-cols-2 mt-4 contentFipe">
-
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-floating mb-4">
+                                    <select class="form-select" name="state" id="state" aria-label="state">
+                                        <option value="">Estados</option>
+                                        <?php
+                                        $json = file_get_contents('https://servicodados.ibge.gov.br/api/v1/localidades/estados/');
+                                        $obj = json_decode($json, true) ;
+                                        $arrEstados = [];
+                                        for ($i=0; $i < count($obj); $i++) {
+                                            array_push($arrEstados, $obj[$i]['sigla']);
+                                        }
+                                        sort($arrEstados);
+                                        foreach ($arrEstados as $estado):
+                                            ?>
+                                        <option value="<?=$estado?>"><?=$estado?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <label for="state">UF</label>
+                                </div>
+                            </div>  
+                            <div class="col-9">
+                                <div class="form-floating mb-4">
+                                    <select class="form-select" name="city" id="city" aria-label="city" disabled="disabled">
+                                        <option value="">Cidades</option>
+                                    </select>
+                                    <label for="city">Cidades</label>
                                 </div>
                             </div>
                         </div>
+                        <div class="priceFipe">
+                            <div class="card border-0 border-top border-bottom border-info border-3 shadow">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-semibold">Preço Fipe - <span class="modelcar"></span></h5> 
+                                    <div class="row row-cols-2 mt-4 contentFipe">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="col">
+                            <div class="w-100 border border-2 rounded p-3 painel--photos" style="height: 500px">
+                                <label class="card--photos border border-2 rounded">
+                                    <input type="file"  name="file_1" id="file_1" hidden class="photos" onChange="createInput(this)">
+                                </label>
+                            </div>
+                        </section>
                         </div>
                     </div>
-                </section>
+                </div>
             </form>
         </div>
     </div>

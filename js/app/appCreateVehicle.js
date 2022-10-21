@@ -1,8 +1,12 @@
+
+
 $(document).ready(function () {
     $('.priceFipe').hide()
     getType();
     getModels();
     getPriceFipe();
+    selectState();
+    /* It's a function that gets the year of the selected model. */
 });
 
 /**
@@ -90,21 +94,38 @@ function getPriceFipe()
     e.preventDefault();
     var year = $(this).val();
     var codFipe = $('#model').find('option:selected').attr('attr-id');
+    $('#codeFipe').val(codFipe);
     $.ajax({
       type: "GET",
       url: "https://brasilapi.com.br/api/fipe/preco/v1/"+codFipe,
       dataType: "json",
       success: function (data) {
-        //console.log(data);
         if(data){
+          $('#anoModel').change(function () {
+            var yearSelect = $(this).val();
+            const vehicleFipe = data.filter((arr) => {
+              return arr.anoModelo == yearSelect;
+            });
+            console.log('RESULT:')
+            //console.log(vehicleFipe);
+            var priceFipe = vehicleFipe[0].valor.replace(/[^0-9,]*/g, '').replace(',', '.');
+            var yearFipe = vehicleFipe[0].anoModelo;
+            console.log(priceFipe); 
+            //console.log(currency(priceFipe)); 
+            $('#codeFipe').val(codFipe);
+            $('#priceFipe').val(priceFipe);
+            $('#yearFipe').val(yearFipe);
+          });
+
           $('.contentFipe').empty();
           $('.priceFipe').show()
           $('.modelcar').text(data[0].modelo);
-          $.each(data, function (index, value) { 
+          $.each(data, function (index, value) {
             $('.contentFipe').append(`
             <div class="col pb-3 pt-3 border-bottom border-2 lines">
                <p class="card-text fw-medium mb-0">
-               <span class="text-muted">Ano Modelo:</span> ${value.anoModelo}
+               <span class="text-muted">Ano Modelo:</span> 
+               ${value.anoModelo == 32000 ? 'Novo/0Km' : value.anoModelo}
                </p>
                <p class="card-text fw-medium">
                <span class="text-muted">Preço:</span> ${value.valor}
@@ -118,7 +139,6 @@ function getPriceFipe()
           if(countLines % 2 === 0) {
               par = true;
           }
-          console.log(par);
           if(par == true){
               $('.lines:nth-last-child(-n+2)').removeClass('border-bottom border-2')
           } else {
@@ -130,4 +150,61 @@ function getPriceFipe()
       }
     });
   });
+}
+
+function selectState(){
+  $('#state').change(function (e) { 
+    e.preventDefault();
+    var state = $(this).val();
+    listCity(state);
+  });
+}
+
+function listCity(state)
+{
+  $.ajax({
+    type: "GET",
+    url: `https://brasilapi.com.br/api/ibge/municipios/v1/${state}?providers=dados-abertos-br,gov,wikipedia`,
+    dataType: "json",
+    success: function (data) {
+      $('#city').empty();
+      $('#city').removeAttr("disabled");
+      $('#city').html(`<option>Cidades</option>`);
+      $.each(data, function (index, value) { 
+        $('#city').append(`
+          <option value="${value.nome}">${value.nome}</option>
+        `); 
+      });
+    }
+  });
+}
+
+
+function createInput(btnFile) 
+{
+      var fileCount = btnFile.files.length;
+      var quantCard = $('.card--photos').length;
+      console.log(quantCard);
+      if(fileCount > 0){
+        $('.painel--photos').append(`
+          <div class="card--photos border border-2 rounded position-relative">
+            <label class="w-100 h-100">
+                <input type="file" name="file_${quantCard + 1}" id="file_${quantCard + 1}" hidden class="photos" onChange="createInput(this)">
+            </label>
+            <span style="
+            position: absolute;
+            right: 5px;
+            top: 0px;" 
+            onClick="removeInput(this)" 
+            class="text-danger">
+            <i class="ri-close-circle-fill" style="font-size: 1.3rem;"></i>
+            </span>
+          </div>
+        `);
+      }
+}
+
+function removeInput(selector)
+{
+  $(selector).closest('div').remove()
 }

@@ -58,3 +58,10 @@ Font
 .fw-black  {
     font-weight: 900;
 }
+
+.card--photos {
+    float: left;
+    width: calc(100%/5.5);
+    margin: 6px;
+    height: 130px;
+}
